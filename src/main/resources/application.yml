@@ -1,0 +1,24 @@
+#默认使用配置
+spring:
+  profiles:
+    active: dev
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3306/lf_sys?useUnicode=true&characterEncoding=utf8&characterSetResults=utf8
+    username: root
+    password: 123456
+
+server:
+  port: 8081
+  servlet:
+    context-path: /spring-boot-demo
+
+#devtools:
+#  restart:
+#    enabled: true #热部署生效
+#    #设置重启的目录
+#    additional-paths: src/main/java
+#    exclude: WEB-INF/** #classpath目录下的WEB-INF文件夹内容修改不重启
+
+mybatis:
+  mapper-locations: classpath*:mappers/*.xml
+  type-aliases-package: com.luo.wiley.springbootdemo.domain
