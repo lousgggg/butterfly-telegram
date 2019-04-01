@@ -13,11 +13,11 @@ import org.springframework.web.bind.annotation.*;
 public class UserController {
 
     @Autowired
-    private UserService userService;
+     private UserService userService;
 
     @PostMapping("showName")
     public String showName(@RequestParam("id") String id) {
         User user = userService.get(id);
         return user.getLoginMobile();
-    }
+      }
 }
