@@ -3,6 +3,7 @@ package com.luo.wiley.springbootdemo.service;
 import com.luo.wiley.springbootdemo.domain.User;
 import com.luo.wiley.springbootdemo.mapper.UserMapper;
 import org.springframework.stereotype.Service;
+import reactor.core.publisher.Flux;
 
 import javax.annotation.Resource;
 
@@ -16,6 +17,11 @@ public class UserService {
     UserMapper userMapper;
 
     public User get(String id) {
+        // reactor demo
+//        Flux.just()
+
+
+
        return userMapper.findUserById(id);
     }
 }
