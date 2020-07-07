@@ -19,7 +19,6 @@ public class UserController {
     @GetMapping("index")
     public String index(ModelMap map) {
         User user = userService.get("38387aeeb2fe11e7bbedecf4bbc53460");
-
-        return user.getLoginName();
+        return user.getLoginMobile();
       }
 }
