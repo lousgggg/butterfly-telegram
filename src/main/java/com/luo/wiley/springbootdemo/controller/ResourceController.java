@@ -1,6 +1,7 @@
 package com.luo.wiley.springbootdemo.controller;
 
 import com.luo.wiley.springbootdemo.opensource.Resource;
+import io.swagger.annotations.Api;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -9,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 @RequestMapping(value = "resource/")
+@Api(value = "Resource管理")
 public class ResourceController {
 
     @Autowired
