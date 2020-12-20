@@ -28,7 +28,7 @@ public class UserController {
     @ApiOperation(value = "获取用户", notes = "接口描述，例如：只能输入‘罗帅哥’")
     @ApiImplicitParam(paramType = "query", name = "name", value = "姓名", required = true, dataType = "String", defaultValue = "罗帅哥")
     public String index(@RequestParam String name) {
-        String id = "38387aeeb2fe11e7bbedecf4bbc53460";
+        String id = "9be9cec942ba11ebba6400acbc58d7d1";
         User user = userService.get(id);
 //        ExecutorService executorService = Executors.newCachedThreadPool();
         return user.toString();
