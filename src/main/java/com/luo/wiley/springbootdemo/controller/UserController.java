@@ -31,6 +31,6 @@ public class UserController {
         String id = "9be9cec942ba11ebba6400acbc58d7d1";
         User user = userService.get(id);
 //        ExecutorService executorService = Executors.newCachedThreadPool();
-        return user.toString();
+        return user.getName();
     }
 }

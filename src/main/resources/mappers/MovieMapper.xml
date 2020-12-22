@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.luo.wiley.springbootdemo.mapper.MovieMapper">
+    <cache eviction="LRU" flushInterval="60000" size="512" readOnly="true"/>
+
+    <resultMap id="movieMap" type="com.luo.wiley.springbootdemo.domain.Movie">
+        <id column="id" property="id"/>
+        <result column="directors" property="directors"/>
+        <result column="title" property="title"/>
+        <result column="cover" property="cover"/>
+        <result column="rate" property="rate"/>
+        <result column="casts" property="casts"/>
+    </resultMap>
+
+    <select id="findAll" resultType="com.luo.wiley.springbootdemo.domain.Movie">
+        SELECT * FROM movie
+    </select>
+
+</mapper>
