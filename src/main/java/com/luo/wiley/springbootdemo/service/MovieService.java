@@ -11,7 +11,7 @@ import javax.annotation.Resource;
 import java.util.List;
 import java.util.stream.Collectors;
 
-@Service
+@Service("movieService")
 public class MovieService {
 
     @Resource
