@@ -1,0 +1,308 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.luo.wiley.springbootdemo.dao.SysUserDao">
+
+    <resultMap type="com.luo.wiley.springbootdemo.domain.SysUser" id="SysUserMap">
+        <result property="id" column="id" jdbcType="VARCHAR"/>
+        <result property="bonusptBalance" column="bonuspt_balance" jdbcType="NUMERIC"/>
+        <result property="bonusptCumulative" column="bonuspt_cumulative" jdbcType="NUMERIC"/>
+        <result property="isActive" column="is_active" jdbcType="OTHER"/>
+        <result property="loginName" column="login_name" jdbcType="VARCHAR"/>
+        <result property="loginMobile" column="login_mobile" jdbcType="VARCHAR"/>
+        <result property="membershipNo" column="membership_no" jdbcType="VARCHAR"/>
+        <result property="password" column="password" jdbcType="VARCHAR"/>
+        <result property="qqId" column="qq_id" jdbcType="VARCHAR"/>
+        <result property="qqPwd" column="qq_pwd" jdbcType="VARCHAR"/>
+        <result property="smsPwd" column="sms_pwd" jdbcType="VARCHAR"/>
+        <result property="smsVerifyCodeTime" column="sms_verify_code_time" jdbcType="TIMESTAMP"/>
+        <result property="wechatId" column="wechat_id" jdbcType="VARCHAR"/>
+        <result property="wechatPwd" column="wechat_pwd" jdbcType="VARCHAR"/>
+        <result property="weiboId" column="weibo_id" jdbcType="VARCHAR"/>
+        <result property="weiboPwd" column="weibo_pwd" jdbcType="VARCHAR"/>
+        <result property="userProfileId" column="user_profile_id" jdbcType="VARCHAR"/>
+        <result property="createBy" column="create_by" jdbcType="VARCHAR"/>
+        <result property="createDate" column="create_date" jdbcType="TIMESTAMP"/>
+        <result property="delFlag" column="del_flag" jdbcType="OTHER"/>
+        <result property="remarks" column="remarks" jdbcType="VARCHAR"/>
+        <result property="updateBy" column="update_by" jdbcType="VARCHAR"/>
+        <result property="updateDate" column="update_date" jdbcType="TIMESTAMP"/>
+        <result property="version" column="version" jdbcType="INTEGER"/>
+    </resultMap>
+
+    <!--查询单个-->
+    <select id="queryById" resultMap="SysUserMap">
+        select id,
+               bonuspt_balance,
+               bonuspt_cumulative,
+               is_active,
+               login_name,
+               login_mobile,
+               membership_no,
+               password,
+               qq_id,
+               qq_pwd,
+               sms_pwd,
+               sms_verify_code_time,
+               wechat_id,
+               wechat_pwd,
+               weibo_id,
+               weibo_pwd,
+               user_profile_id,
+               create_by,
+               create_date,
+               del_flag,
+               remarks,
+               update_by,
+               update_date,
+               version
+        from test.sys_user
+        where id = #{id}
+    </select>
+
+    <!--查询指定行数据-->
+    <select id="queryAllByLimit" resultMap="SysUserMap">
+        select id,
+               bonuspt_balance,
+               bonuspt_cumulative,
+               is_active,
+               login_name,
+               login_mobile,
+               membership_no,
+               password,
+               qq_id,
+               qq_pwd,
+               sms_pwd,
+               sms_verify_code_time,
+               wechat_id,
+               wechat_pwd,
+               weibo_id,
+               weibo_pwd,
+               user_profile_id,
+               create_by,
+               create_date,
+               del_flag,
+               remarks,
+               update_by,
+               update_date,
+               version
+        from test.sys_user
+        limit #{offset}, #{limit}
+    </select>
+
+    <!--通过实体作为筛选条件查询-->
+    <select id="queryAll" resultMap="SysUserMap">
+        select
+        id, bonuspt_balance, bonuspt_cumulative, is_active, login_name, login_mobile, membership_no, password, qq_id,
+        qq_pwd, sms_pwd, sms_verify_code_time, wechat_id, wechat_pwd, weibo_id, weibo_pwd, user_profile_id, create_by,
+        create_date, del_flag, remarks, update_by, update_date, version
+        from test.sys_user
+        <where>
+            <if test="id != null and id != ''">
+                and id = #{id}
+            </if>
+            <if test="bonusptBalance != null">
+                and bonuspt_balance = #{bonusptBalance}
+            </if>
+            <if test="bonusptCumulative != null">
+                and bonuspt_cumulative = #{bonusptCumulative}
+            </if>
+            <if test="isActive != null">
+                and is_active = #{isActive}
+            </if>
+            <if test="loginName != null and loginName != ''">
+                and login_name = #{loginName}
+            </if>
+            <if test="loginMobile != null and loginMobile != ''">
+                and login_mobile = #{loginMobile}
+            </if>
+            <if test="membershipNo != null and membershipNo != ''">
+                and membership_no = #{membershipNo}
+            </if>
+            <if test="password != null and password != ''">
+                and password = #{password}
+            </if>
+            <if test="qqId != null and qqId != ''">
+                and qq_id = #{qqId}
+            </if>
+            <if test="qqPwd != null and qqPwd != ''">
+                and qq_pwd = #{qqPwd}
+            </if>
+            <if test="smsPwd != null and smsPwd != ''">
+                and sms_pwd = #{smsPwd}
+            </if>
+            <if test="smsVerifyCodeTime != null">
+                and sms_verify_code_time = #{smsVerifyCodeTime}
+            </if>
+            <if test="wechatId != null and wechatId != ''">
+                and wechat_id = #{wechatId}
+            </if>
+            <if test="wechatPwd != null and wechatPwd != ''">
+                and wechat_pwd = #{wechatPwd}
+            </if>
+            <if test="weiboId != null and weiboId != ''">
+                and weibo_id = #{weiboId}
+            </if>
+            <if test="weiboPwd != null and weiboPwd != ''">
+                and weibo_pwd = #{weiboPwd}
+            </if>
+            <if test="userProfileId != null and userProfileId != ''">
+                and user_profile_id = #{userProfileId}
+            </if>
+            <if test="createBy != null and createBy != ''">
+                and create_by = #{createBy}
+            </if>
+            <if test="createDate != null">
+                and create_date = #{createDate}
+            </if>
+            <if test="delFlag != null">
+                and del_flag = #{delFlag}
+            </if>
+            <if test="remarks != null and remarks != ''">
+                and remarks = #{remarks}
+            </if>
+            <if test="updateBy != null and updateBy != ''">
+                and update_by = #{updateBy}
+            </if>
+            <if test="updateDate != null">
+                and update_date = #{updateDate}
+            </if>
+            <if test="version != null">
+                and version = #{version}
+            </if>
+        </where>
+    </select>
+
+    <!--新增所有列-->
+    <insert id="insert" keyProperty="id" useGeneratedKeys="true">
+        insert into test.sys_user(bonuspt_balance, bonuspt_cumulative, is_active, login_name, login_mobile,
+                                  membership_no, password, qq_id, qq_pwd, sms_pwd, sms_verify_code_time, wechat_id,
+                                  wechat_pwd, weibo_id, weibo_pwd, user_profile_id, create_by, create_date, del_flag,
+                                  remarks, update_by, update_date, version)
+        values (#{bonusptBalance}, #{bonusptCumulative}, #{isActive}, #{loginName}, #{loginMobile}, #{membershipNo},
+                #{password}, #{qqId}, #{qqPwd}, #{smsPwd}, #{smsVerifyCodeTime}, #{wechatId}, #{wechatPwd}, #{weiboId},
+                #{weiboPwd}, #{userProfileId}, #{createBy}, #{createDate}, #{delFlag}, #{remarks}, #{updateBy},
+                #{updateDate}, #{version})
+    </insert>
+
+    <insert id="insertBatch" keyProperty="id" useGeneratedKeys="true">
+        insert into test.sys_user(bonuspt_balance, bonuspt_cumulative, is_active, login_name, login_mobile,
+        membership_no, password, qq_id, qq_pwd, sms_pwd, sms_verify_code_time, wechat_id, wechat_pwd, weibo_id,
+        weibo_pwd, user_profile_id, create_by, create_date, del_flag, remarks, update_by, update_date, version)
+        values
+        <foreach collection="entities" item="entity" separator=",">
+            (#{entity.bonusptBalance}, #{entity.bonusptCumulative}, #{entity.isActive}, #{entity.loginName},
+            #{entity.loginMobile}, #{entity.membershipNo}, #{entity.password}, #{entity.qqId}, #{entity.qqPwd},
+            #{entity.smsPwd}, #{entity.smsVerifyCodeTime}, #{entity.wechatId}, #{entity.wechatPwd}, #{entity.weiboId},
+            #{entity.weiboPwd}, #{entity.userProfileId}, #{entity.createBy}, #{entity.createDate}, #{entity.delFlag},
+            #{entity.remarks}, #{entity.updateBy}, #{entity.updateDate}, #{entity.version})
+        </foreach>
+    </insert>
+
+    <insert id="insertOrUpdateBatch" keyProperty="id" useGeneratedKeys="true">
+        insert into test.sys_user(bonuspt_balance, bonuspt_cumulative, is_active, login_name, login_mobile,
+        membership_no, password, qq_id, qq_pwd, sms_pwd, sms_verify_code_time, wechat_id, wechat_pwd, weibo_id,
+        weibo_pwd, user_profile_id, create_by, create_date, del_flag, remarks, update_by, update_date, version)
+        values
+        <foreach collection="entities" item="entity" separator=",">
+            (#{entity.bonusptBalance}, #{entity.bonusptCumulative}, #{entity.isActive}, #{entity.loginName},
+            #{entity.loginMobile}, #{entity.membershipNo}, #{entity.password}, #{entity.qqId}, #{entity.qqPwd},
+            #{entity.smsPwd}, #{entity.smsVerifyCodeTime}, #{entity.wechatId}, #{entity.wechatPwd}, #{entity.weiboId},
+            #{entity.weiboPwd}, #{entity.userProfileId}, #{entity.createBy}, #{entity.createDate}, #{entity.delFlag},
+            #{entity.remarks}, #{entity.updateBy}, #{entity.updateDate}, #{entity.version})
+        </foreach>
+        on duplicate key update
+        bonuspt_balance = values(bonuspt_balance) , bonuspt_cumulative = values(bonuspt_cumulative) , is_active =
+        values(is_active) , login_name = values(login_name) , login_mobile = values(login_mobile) , membership_no =
+        values(membership_no) , password = values(password) , qq_id = values(qq_id) , qq_pwd = values(qq_pwd) , sms_pwd
+        = values(sms_pwd) , sms_verify_code_time = values(sms_verify_code_time) , wechat_id = values(wechat_id) ,
+        wechat_pwd = values(wechat_pwd) , weibo_id = values(weibo_id) , weibo_pwd = values(weibo_pwd) , user_profile_id
+        = values(user_profile_id) , create_by = values(create_by) , create_date = values(create_date) , del_flag =
+        values(del_flag) , remarks = values(remarks) , update_by = values(update_by) , update_date = values(update_date)
+        , version = values(version)
+    </insert>
+
+    <!--通过主键修改数据-->
+    <update id="update">
+        update test.sys_user
+        <set>
+            <if test="bonusptBalance != null">
+                bonuspt_balance = #{bonusptBalance},
+            </if>
+            <if test="bonusptCumulative != null">
+                bonuspt_cumulative = #{bonusptCumulative},
+            </if>
+            <if test="isActive != null">
+                is_active = #{isActive},
+            </if>
+            <if test="loginName != null and loginName != ''">
+                login_name = #{loginName},
+            </if>
+            <if test="loginMobile != null and loginMobile != ''">
+                login_mobile = #{loginMobile},
+            </if>
+            <if test="membershipNo != null and membershipNo != ''">
+                membership_no = #{membershipNo},
+            </if>
+            <if test="password != null and password != ''">
+                password = #{password},
+            </if>
+            <if test="qqId != null and qqId != ''">
+                qq_id = #{qqId},
+            </if>
+            <if test="qqPwd != null and qqPwd != ''">
+                qq_pwd = #{qqPwd},
+            </if>
+            <if test="smsPwd != null and smsPwd != ''">
+                sms_pwd = #{smsPwd},
+            </if>
+            <if test="smsVerifyCodeTime != null">
+                sms_verify_code_time = #{smsVerifyCodeTime},
+            </if>
+            <if test="wechatId != null and wechatId != ''">
+                wechat_id = #{wechatId},
+            </if>
+            <if test="wechatPwd != null and wechatPwd != ''">
+                wechat_pwd = #{wechatPwd},
+            </if>
+            <if test="weiboId != null and weiboId != ''">
+                weibo_id = #{weiboId},
+            </if>
+            <if test="weiboPwd != null and weiboPwd != ''">
+                weibo_pwd = #{weiboPwd},
+            </if>
+            <if test="userProfileId != null and userProfileId != ''">
+                user_profile_id = #{userProfileId},
+            </if>
+            <if test="createBy != null and createBy != ''">
+                create_by = #{createBy},
+            </if>
+            <if test="createDate != null">
+                create_date = #{createDate},
+            </if>
+            <if test="delFlag != null">
+                del_flag = #{delFlag},
+            </if>
+            <if test="remarks != null and remarks != ''">
+                remarks = #{remarks},
+            </if>
+            <if test="updateBy != null and updateBy != ''">
+                update_by = #{updateBy},
+            </if>
+            <if test="updateDate != null">
+                update_date = #{updateDate},
+            </if>
+            <if test="version != null">
+                version = #{version},
+            </if>
+        </set>
+        where id = #{id}
+    </update>
+
+    <!--通过主键删除-->
+    <delete id="deleteById">
+        delete
+        from test.sys_user
+        where id = #{id}
+    </delete>
+
+</mapper>

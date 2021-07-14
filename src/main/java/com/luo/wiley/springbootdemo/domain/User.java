@@ -25,7 +25,7 @@ public class User {
 //
 //    private String loginName;
 //
-//    private String loginMobile;
+    private String loginMobile;
 //
 //    private String membershipNo;
 //
