@@ -81,8 +81,4 @@ public interface SysUserDao {
      */
     int deleteById(String id);
 
-    /**
-     * Created by wiley.luo on 2019/3/8
-     */
-
 }
