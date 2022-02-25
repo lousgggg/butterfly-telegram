@@ -6,10 +6,16 @@ import io.netty.channel.ChannelFuture;
 import io.netty.channel.ChannelInitializer;
 import io.netty.channel.EventLoopGroup;
 import io.netty.channel.nio.NioEventLoopGroup;
+import io.netty.channel.socket.SocketChannel;
 import io.netty.channel.socket.nio.NioServerSocketChannel;
+import org.apache.ibatis.executor.Executor;
+import org.apache.ibatis.mapping.MappedStatement;
+import org.apache.ibatis.plugin.Intercepts;
+import org.apache.ibatis.plugin.Signature;
 
 import java.net.InetSocketAddress;
 
+@Intercepts({@Signature(method = "update", type = Executor.class, args = {MappedStatement.class, Object.class})})
 public class EchoServer {
 
     private final int port;
@@ -37,9 +43,9 @@ public class EchoServer {
             b.group(group)
                     .channel(NioServerSocketChannel.class)
                     .localAddress(new InetSocketAddress(port))
-                    .childHandler(new ChannelInitializer() {
+                    .childHandler(new ChannelInitializer<SocketChannel>() {
                         @Override
-                        protected void initChannel(Channel ch) throws Exception {
+                        protected void initChannel(SocketChannel ch) throws Exception {
                             ch.pipeline().addLast(serverHandler);
                         }
                     });

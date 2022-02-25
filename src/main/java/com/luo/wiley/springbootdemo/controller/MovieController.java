@@ -13,6 +13,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.annotation.Resource;
+
 /**
  * Created by wiley.luo on 2019/3/8
  */
@@ -21,7 +23,7 @@ import org.springframework.web.bind.annotation.RestController;
 @Api(value = "Movie管理")
 public class MovieController {
 
-    @Autowired
+    @Resource(name = "movieService")
     private MovieService movieService;
 
     @GetMapping("movies")

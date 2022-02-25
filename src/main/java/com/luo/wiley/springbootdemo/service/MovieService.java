@@ -19,7 +19,7 @@ public class MovieService {
 
     public Page<Movie> findPage(Integer pageIndex, Integer pageNumber) {
         List<Movie> movies = movieMapper.findAll();
-        List<Movie> movieList = movies.stream().skip(pageIndex * pageNumber).limit(20).collect(Collectors.toList());
+        List<Movie> movieList = movies.stream().skip((long) pageIndex * pageNumber).limit(20).collect(Collectors.toList());
         Page<Movie> page = new PageImpl<>(movieList, new PageRequest(pageIndex, pageNumber), movies.size());
         return page;
     }
