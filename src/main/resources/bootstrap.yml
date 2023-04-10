@@ -4,8 +4,8 @@ spring:
     active: dev
   datasource:
     url: jdbc:mysql://127.0.0.1:3306/test?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf8&characterSetResults=utf8
-    username: root
-    password: luosg
+    username: luosg
+    password: 123456
 
 #devtools:
     #  restart:

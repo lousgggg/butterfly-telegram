@@ -1,20 +1,20 @@
-//package com.luo.wiley.springbootdemo.configuration;
-//
-//import io.lettuce.core.dynamic.annotation.Value;
-//import org.springframework.context.annotation.Bean;
-//import org.springframework.context.annotation.Configuration;
-//import org.springframework.context.annotation.Primary;
-//import org.springframework.data.redis.connection.RedisConnectionFactory;
-//import org.springframework.data.redis.connection.jedis.JedisConnectionFactory;
-//import org.springframework.data.redis.core.RedisTemplate;
-//import org.springframework.data.redis.core.StringRedisTemplate;
-//
-///**
-// * Created by lsgem on 2019/8/20.
-// */
-//@Configuration
-//public class RedisTestAutoConfigure {
-//
+package com.luo.wiley.springbootdemo.configuration;
+
+import io.lettuce.core.dynamic.annotation.Value;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Primary;
+import org.springframework.data.redis.connection.RedisConnectionFactory;
+import org.springframework.data.redis.connection.jedis.JedisConnectionFactory;
+import org.springframework.data.redis.core.RedisTemplate;
+import org.springframework.data.redis.core.StringRedisTemplate;
+
+/**
+ * Created by lsgem on 2019/8/20.
+ */
+@Configuration
+public class RedisTestAutoConfigure {
+
 //    @Value("${redis.task.host}")
 //    private String redisHost;
 //
@@ -75,5 +75,5 @@
 //        template.setConnectionFactory(taskConnectionFactory());
 //        return template;
 //    }
-//
-//}
+
+}
