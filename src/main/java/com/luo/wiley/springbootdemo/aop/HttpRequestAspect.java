@@ -62,16 +62,16 @@ public class HttpRequestAspect {
      */
     @After("print()")
     public void after() {
-        endTime = System.currentTimeMillis() - startTime;
+//        endTime = System.currentTimeMillis() - startTime;
 
-        Object movieService = SpringContextUtil.getBean("movieService");
-        try {
-            MovieService target = (MovieService)getTarget(movieService);
-
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        log.info("后置切面after……");
+//        Object movieService = SpringContextUtil.getBean("movieService");
+//        try {
+//            MovieService target = (MovieService)getTarget(movieService);
+//
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
+//        log.info("后置切面after……");
     }
 
     /**
