@@ -1,6 +1,6 @@
 package com.luo.wiley.springbootdemo.service.impl;
 
-import com.luo.wiley.springbootdemo.dao.SysUserDao;
+import com.luo.wiley.springbootdemo.mapper.SysUserMapper;
 import com.luo.wiley.springbootdemo.domain.SysUser;
 import com.luo.wiley.springbootdemo.service.SysUserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,7 +21,7 @@ import java.util.List;
 @Service("sysUserService")
 public class SysUserServiceImpl implements SysUserService {
     @Resource
-    private SysUserDao sysUserDao;
+    private SysUserMapper sysUserMapper;
     @Autowired
     private RedisTemplate redisTemplate;
 
@@ -33,7 +33,7 @@ public class SysUserServiceImpl implements SysUserService {
      */
     @Override
     public SysUser queryById(String id) {
-        SysUser sysUser = this.sysUserDao.queryById(id);
+        SysUser sysUser = this.sysUserMapper.queryById(id);
 
         BigDecimal a = new BigDecimal("0.11");
 
@@ -74,7 +74,7 @@ public class SysUserServiceImpl implements SysUserService {
      */
     @Override
     public List<SysUser> queryAllByLimit(int offset, int limit) {
-        return this.sysUserDao.queryAllByLimit(offset, limit);
+        return this.sysUserMapper.queryAllByLimit(offset, limit);
     }
 
     /**
@@ -85,7 +85,7 @@ public class SysUserServiceImpl implements SysUserService {
      */
     @Override
     public SysUser insert(SysUser sysUser) {
-        this.sysUserDao.insert(sysUser);
+        this.sysUserMapper.insert(sysUser);
         return sysUser;
     }
 
@@ -97,7 +97,7 @@ public class SysUserServiceImpl implements SysUserService {
      */
     @Override
     public SysUser update(SysUser sysUser) {
-        this.sysUserDao.update(sysUser);
+        this.sysUserMapper.update(sysUser);
         return this.queryById(sysUser.getId());
     }
 
@@ -109,6 +109,6 @@ public class SysUserServiceImpl implements SysUserService {
      */
     @Override
     public boolean deleteById(String id) {
-        return this.sysUserDao.deleteById(id) > 0;
+        return this.sysUserMapper.deleteById(id) > 0;
     }
 }

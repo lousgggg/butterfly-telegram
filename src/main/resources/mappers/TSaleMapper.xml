@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.luo.wiley.springbootdemo.mapper.TSaleMapper">
+  <resultMap id="BaseResultMap" type="com.luo.wiley.springbootdemo.domain.TSale">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="product_id" jdbcType="INTEGER" property="productId" />
+    <result column="consume" jdbcType="VARCHAR" property="consume" />
+    <result column="price" jdbcType="DOUBLE" property="price" />
+    <result column="amount" jdbcType="INTEGER" property="amount" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, product_id, consume, price, amount
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from t_sale
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from t_sale
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.luo.wiley.springbootdemo.domain.TSale" useGeneratedKeys="true">
+    insert into t_sale (product_id, consume, price, 
+      amount)
+    values (#{productId,jdbcType=INTEGER}, #{consume,jdbcType=VARCHAR}, #{price,jdbcType=DOUBLE}, 
+      #{amount,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.luo.wiley.springbootdemo.domain.TSale" useGeneratedKeys="true">
+    insert into t_sale
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="productId != null">
+        product_id,
+      </if>
+      <if test="consume != null">
+        consume,
+      </if>
+      <if test="price != null">
+        price,
+      </if>
+      <if test="amount != null">
+        amount,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="productId != null">
+        #{productId,jdbcType=INTEGER},
+      </if>
+      <if test="consume != null">
+        #{consume,jdbcType=VARCHAR},
+      </if>
+      <if test="price != null">
+        #{price,jdbcType=DOUBLE},
+      </if>
+      <if test="amount != null">
+        #{amount,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.luo.wiley.springbootdemo.domain.TSale">
+    update t_sale
+    <set>
+      <if test="productId != null">
+        product_id = #{productId,jdbcType=INTEGER},
+      </if>
+      <if test="consume != null">
+        consume = #{consume,jdbcType=VARCHAR},
+      </if>
+      <if test="price != null">
+        price = #{price,jdbcType=DOUBLE},
+      </if>
+      <if test="amount != null">
+        amount = #{amount,jdbcType=INTEGER},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.luo.wiley.springbootdemo.domain.TSale">
+    update t_sale
+    set product_id = #{productId,jdbcType=INTEGER},
+      consume = #{consume,jdbcType=VARCHAR},
+      price = #{price,jdbcType=DOUBLE},
+      amount = #{amount,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

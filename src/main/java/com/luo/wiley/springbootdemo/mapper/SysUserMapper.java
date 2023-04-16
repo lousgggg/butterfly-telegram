@@ -1,4 +1,4 @@
-package com.luo.wiley.springbootdemo.dao;
+package com.luo.wiley.springbootdemo.mapper;
 
 import com.luo.wiley.springbootdemo.domain.SysUser;
 import org.apache.ibatis.annotations.Mapper;
@@ -6,15 +6,8 @@ import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
-/**
- * (SysUser)表数据库访问层
- *
- * @author makejava
- * @since 2020-11-21 20:55:39
- */
 @Mapper
-public interface SysUserDao {
-
+public interface SysUserMapper {
     /**
      * 通过ID查询单条数据
      *
@@ -80,5 +73,4 @@ public interface SysUserDao {
      * @return 影响行数
      */
     int deleteById(String id);
-
 }

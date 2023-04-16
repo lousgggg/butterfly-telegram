@@ -1,8 +1,8 @@
 package com.luo.wiley.springbootdemo.service;
 
-import com.luo.wiley.springbootdemo.dao.SysUserDao;
 import com.luo.wiley.springbootdemo.domain.User;
 import com.luo.wiley.springbootdemo.mapper.UserMapper;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -13,7 +13,7 @@ import javax.annotation.Resource;
 @Service
 public class UserService {
 
-    @Resource
+    @Autowired
     private UserMapper userMapper;
 
     public User get(String id) {

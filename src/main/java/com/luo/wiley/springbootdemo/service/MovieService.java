@@ -2,6 +2,7 @@ package com.luo.wiley.springbootdemo.service;
 
 import com.luo.wiley.springbootdemo.domain.Movie;
 import com.luo.wiley.springbootdemo.mapper.MovieMapper;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.PageRequest;
@@ -14,7 +15,7 @@ import java.util.stream.Collectors;
 @Service("movieService")
 public class MovieService {
 
-    @Resource
+    @Autowired
     private MovieMapper movieMapper;
 
     public Page<Movie> findPage(Integer pageIndex, Integer pageNumber) {

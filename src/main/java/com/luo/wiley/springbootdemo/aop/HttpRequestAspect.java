@@ -1,7 +1,6 @@
 package com.luo.wiley.springbootdemo.aop;
 
 import com.luo.wiley.springbootdemo.service.MovieService;
-import com.luo.wiley.springbootdemo.service.UserService;
 import com.luo.wiley.springbootdemo.util.ReflectionUtils;
 import com.luo.wiley.springbootdemo.util.SpringContextUtil;
 import org.aspectj.lang.JoinPoint;
@@ -10,14 +9,11 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.aop.framework.AdvisedSupport;
 import org.springframework.aop.support.AopUtils;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cglib.proxy.InvocationHandler;
 import org.springframework.cglib.proxy.Proxy;
-import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Component;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
-import org.thymeleaf.spring5.context.SpringContextUtils;
 
 import javax.servlet.http.HttpServletRequest;
 

@@ -15,28 +15,6 @@
         <result column="name" property="name"/>
         <result column="mobile" property="mobile"/>
 
-<!--        <result column="bonuspt_balance" property="bonusptBalance"/>-->
-<!--        <result column="bonuspt_cumulative" property="bonusptCumulative"/>-->
-<!--        <result column="is_active" property="isActive"/>-->
-<!--        <result column="login_name" property="loginName"/>-->
-<!--        <result column="login_mobile" property="loginMobile"/>-->
-<!--        <result column="membership_no" property="membershipNo"/>-->
-<!--        <result column="password" property="password"/>-->
-<!--        <result column="qq_id" property="qqId"/>-->
-<!--        <result column="qq_pwd" property="qqPwd"/>-->
-<!--        <result column="sms_pwd" property="smsPwd"/>-->
-<!--        <result column="sms_verify_code_time" property="smsVerifyCodeTime"/>-->
-<!--        <result column="wechat_id" property="wechatId"/>-->
-<!--        <result column="wechat_pwd" property="wechatPwd"/>-->
-<!--        <result column="weibo_id" property="weiboId"/>-->
-<!--        <result column="weibo_pwd" property="weiboPwd"/>-->
-<!--        <result column="user_profile_id" property="userProfileId"/>-->
-<!--        <result column="create_by" property="createBy"/>-->
-<!--        <result column="create_date" property="createDate"/>-->
-<!--        <result column="update_by" property="updateBy"/>-->
-<!--        <result column="update_date" property="updateDate"/>-->
-<!--        <result column="del_flag" property="delFlag"/>-->
-<!--        <result column="version" property="version"/>-->
     </resultMap>
 
 </mapper>
